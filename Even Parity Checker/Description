@@ -1,0 +1,32 @@
+Bit parity checking is a way of error checking for data transmission. It can be one dim. or two dim. Also, the parity checking can be 
+either even parity checking or odd parity checking. The problem focuses on only even parity checking of bytes. In one dim even parity 
+checking, the parity bit should be set accordingly to ensure the total number of 1s in the data is an even number. For example, if the 
+first 7 bits of a byte data are 11010000, the total number of 1s is 3. In this case, the 8th bit should be 1, to make the total
+number of 1s into 4, which is an even number. If the total number of 1's in a byte with even parity checking is not an even number,
+it means that an error exists in the data.
+
+In 2 dim, the checking should be performed towards each row and each column when the bytes are arranged as rows in a table. For example,
+as shown below, the first 7 bits of the first three rows are the original data set, the last column of bits are the parity checking bits 
+for each row; Vertically, the bits in the bottom row are the parity checking bits for each column. Note that bottom right bit is a correct
+parity for both the final row and final column.
+1 1 0 1 0 0 1 | 0
+1 0 1 1 0 1 0 | 0
+1 0 1 0 1 0 0 | 1
+-----------------
+1 1 0 0 1 1 1 | 1
+
+If the total number of 1's on a row is not an even number, it mean ana error exists in the row. Similarly, if the total number of 1s is in
+a column is not an even number there is an error. Therefore, if there is only bit error, by locating the column and the row with error,
+we can find the specific error bit. For example, when the above example has an error bit introduced on row 2 and column 3.
+
+In this problem, you will provided with four bytes, which includes the data and the parity checking bit as described above. There is a 
+single bit error in the data however. That means that there is a SINGLE bit that resides in the first three rows and first seven columns
+that if you toggleed it all parity bits would become correct Your job is to find the row and column of the incorrect bit.
+
+Input
+The input is four bytes, which includes the checking bits. The bytes are provided in a sequence without any space. In the example above, 
+the input will be 11010010100101001010100111001111
+
+Output
+The output is the row and column number of the error bit. Letter "R" and letter "C" should be put before the row number and column number
+respectively. For the example above, the output is R2C3. 
