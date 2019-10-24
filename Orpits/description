@@ -1,0 +1,26 @@
+The formula for the number of Orpits in the next generation (in this case the next day), given the number in the current generation is:
+- if number of orpits > 10 then half of the orpits die
+- if number of orpits is greater than 1 AND less than or equal to 10 then the population doubles, plus 3 more and minus the current 
+  generation number
+- if number of orpits is less than or equal to one, then there is no next generation since one orpit can not reproduce.
+
+Write a program which will read a single integer number representing a pre-invasion force size. THe ouput should be a series of lines,
+one for each generation in which there is at least one Orpit alive, containing the generation number and a bar grpah showing the size
+of the orbit population for that generation. THe bar graph should contain one * for each orpit in the population, separated by a singe 
+blank, with all bars left adjusted to the same point. The first generation is the generation 0 and will always consist of one orpit. The
+last generation will never be more than generation 13, since the orpits will decide on whether to proceed with the invasion after 13 days
+have passed. You may assume that the population never grows so large that is cannot be represented on a single line of output
+
+Sample intput             Sameple Output
+7                         0         * * * * * * * 
+                          1         * * * * * * * * * * * * * * * * *
+                          2         * * * * * * * *
+                          3         * * * * * * * * * * * * * * * * *
+                          4         * * * * * * * *
+                          5         * * * * * * * * * * * * * * *
+                          6         * * * * * * *
+                          7         * * * * * * * * * * *
+                          8         * * * * *
+                          9         * * * * *
+                          10        * * * *
+                          11        *
