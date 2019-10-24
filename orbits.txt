@@ -1,0 +1,38 @@
+import java.util.Scanner;
+
+public class Orbits {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        // print the generation
+        int og = s.nextInt();
+        int generation = 0;
+        int currentO = og;
+        boolean once = false;
+        while (generation < 14 && currentO > 1) {
+            System.out.print(generation + "     ");
+            if (!once)
+            {
+                currentO = rabbit(currentO);
+            }
+            once = true;
+            printO(currentO);
+            generation++;
+        }
+
+
+    }
+
+    public static int rabbit(int O){
+        if (O > 10) O = O/2;
+        else if (O > 1) O = O*2 + 3;
+        else O = 1;
+        return O;
+    }
+
+    public static void printO(int orbits){
+        for (int i = 0; i < orbits; i++){
+            System.out.print("*");
+        }
+        System.out.println();
+    }
+}
